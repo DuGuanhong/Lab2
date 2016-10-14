@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+   <constant name="struts.devMode" value="true" /> 
+   <package name="index" namespace="/" extends="struts-default">
+   
+         <action name="insert_ini"> <result >/input.jsp</result></action>
+         
+         <action name="insert" class="LL.library_main" method="insertSQL">
+         <result name="SUCCESS">/success.jsp</result>
+         </action>
+         
+         <action name="back"
+         class="LL.library_main" method="return1">
+         <result name="SUCCESS">/index.jsp</result>
+         </action>
+         
+         <action name="search" class="LL.library_main" method="findAuthor">
+         <result name="SUCCESS">/author_list.jsp</result>
+         <result name="FALSE">/error.jsp</result>
+         </action>
+         <action name="detail" class="LL.library_main" method="bookdetail">
+         <result name="SUCCESS">/author_list_detail.jsp</result>
+         <result name="FALSE">/error.jsp</result>
+         </action>
+         <action name="delete"  class="LL.library_main" method="delete">
+         <result name="SUCCESS">/success2.jsp</result>
+         <result name="FALSE">/error.jsp</result>
+         </action>
+         <action name ="updating"  class="LL.library_main" method="update">
+          <result name="SUCCESS">/success.jsp</result>
+         <result name="FALSE">/error.jsp</result>
+         </action>
+
+   </package>
+
+</struts>
